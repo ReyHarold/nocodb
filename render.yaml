@@ -2,12 +2,12 @@ services:
   - type: web
     name: nocodb
     env: node
+    plan: free
     buildCommand: |
       corepack enable
-      corepack prepare pnpm@latest --activate
+      corepack prepare pnpm@9.1.0 --activate
       pnpm install
     startCommand: pnpm start
-    plan: free
     envVars:
-      - key: NODE_ENV
-        value: production
+      - key: NC_DB
+        value: "postgresql://mmc_hn3f_user:zIgwgkSRFwQwfKsMgrjVk1eJWn8Xuv2e@dpg-d2apok2dbo4c73a4ekv0-a/mmc_hn3f"
